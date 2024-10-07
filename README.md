@@ -3,14 +3,14 @@
 ## Introduction
 This project focuses on detecting and classifying violent activities in real-time video frames. It leverages deep learning models, including ResNet18 combined with LSTM for classification and YOLOv8 for object detection, to analyze and identify potential violent events in video streams.
 ## Goals
--Accurately classify frames from real-time video streams into violent or non-violent categories.
--Detect specific violent actions and objects in the scene using YOLOv8.
--Optimize system performance to achieve real-time processing speeds.
+- Accurately classify frames from real-time video streams into violent or non-violent categories.
+- Detect specific violent actions and objects in the scene using YOLOv8.
+- Optimize system performance to achieve real-time processing speeds.
 ## Contributors
--Aarogya Bhandari
--Girban Adhikari
--Jivan Acharya
--Yugratna Humagain
+- Aarogya Bhandari
+- Girban Adhikari
+- Jivan Acharya
+- Yugratna Humagain
 ## Project Architecture
 ![Project Architecture](img/architecture.png)
 
@@ -54,46 +54,42 @@ If you have other packages installed in the environment that are no longer neede
 ## Code Structure
 The project consists of the following files and directories:
 
-plaintext
-Copy code
-📂 REALTIME
-├── 📂 __pycache__          # Python cache files (auto-generated)
-├── 📂 flagged              # Directory where flagged video frames or data are stored
-├── 📂 venv                 # Virtual environment for Python dependencies
-├── 📄 app.py               # Main application entry point for running the real-time system
-├── 📄 detection.py         # Contains functions or logic for detection using YOLOv8
-├── 📄 realtime_detection.py # Core script for handling real-time violence detection using ResNet18+LSTM and YOLOv8
-├── 📄 save_10sec.py        # Script to save 10-second video clips from the stream
-├── 📄 test.py              # Script for testing model outputs and performance
-└── 📄 best_violence_detection_model.pth # Trained ResNet18+LSTM model (PyTorch format)
+- 📂 REALTIME
+- ├── 📂 __pycache__          # Python cache files (auto-generated)
+- ├── 📂 flagged              # Directory where flagged video frames or data are stored
+- ├── 📂 venv                 # Virtual environment for Python dependencies
+- ├── 📄 app.py               # Main application entry point for running the real-time system
+- ├── 📄 detection.py         # Contains functions or logic for detection using YOLOv8
+- ├── 📄 realtime_detection.py # Core script for handling real-time violence detection using ResNet18+LSTM and YOLOv8
+- ├── 📄 save_10sec.py        # Script to save 10-second video clips from the stream
+- ├── 📄 test.py              # Script for testing model outputs and performance
+- └── 📄 best_violence_detection_model.pth # Trained ResNet18+LSTM model (PyTorch format)
 File Descriptions:
-app.py: This file likely serves as the main entry point for the real-time violence detection system, handling input streams and orchestrating the pipeline.
+- app.py: This file likely serves as the main entry point for the real-time violence detection system, handling input streams and orchestrating the pipeline.
 
-detection.py: Contains YOLOv8-based detection logic. It is likely using the RoboFlow API for retrieving the pre-trained detection model (detection_model = get_model(...)).
+- detection.py: Contains YOLOv8-based detection logic. It is likely using the RoboFlow API for retrieving the pre-trained detection model (detection_model = get_model(...)).
 
-realtime_detection.py: Core script that integrates the classification and detection models. It probably handles frame classification with ResNet18+LSTM and object detection using YOLOv8.
+- realtime_detection.py: Core script that integrates the classification and detection models. It probably handles frame classification with ResNet18+LSTM and object detection using YOLOv8.
 
-save_10sec.py: A utility script to save 10-second video clips, perhaps for flagged incidents or evaluation purposes.
+- save_10sec.py: A utility script to save 10-second video clips, perhaps for flagged incidents or evaluation purposes.
 
-test.py: Script to test or validate models during development. This might include running inference on sample data to ensure the models work as expected.
+- test.py: Script to test or validate models during development. This might include running inference on sample data to ensure the models work as expected.
 
-flagged/: Directory to store flagged video frames, possibly for post-analysis or manual review.
+- flagged/: Directory to store flagged video frames, possibly for post-analysis or manual review.
 
-venv/: A local virtual environment for the project’s dependencies.
+- venv/: A local virtual environment for the project’s dependencies.
 
-best_violence_detection_model.pth: The saved PyTorch model for the ResNet18+LSTM, trained on Kaggle for violence classification.
+- best_violence_detection_model.pth: The saved PyTorch model for the ResNet18+LSTM, trained on Kaggle for violence classification.
 ## Artifacts Location
-YOLOv8 Detection Model:
+- YOLOv8 Detection Model:
 
-Source: The YOLOv8 model is pulled from Roboflow using the following code:
-python
-Copy code
-detection_model = get_model(model_id="emergency-response/1", api_key=detection_api_key)
-Location: This model is retrieved on-the-fly from Roboflow's API, so it isn't stored locally unless explicitly saved.
-ResNet18 + LSTM Model:
+- Source: The YOLOv8 model is pulled from Roboflow using the following code:
+- detection_model = get_model(model_id="emergency-response/1", api_key=detection_api_key)
+- Location: This model is retrieved on-the-fly from Roboflow's API, so it isn't stored locally unless explicitly saved.
+- ResNet18 + LSTM Model:
 
-Location: The model file is located in the project directory as best_violence_detection_model.pth.
-Source: This model was trained on Kaggle and exported for use in real-time classification tasks.
+- Location: The model file is located in the project directory as best_violence_detection_model.pth.
+- Source: This model was trained on Kaggle and exported for use in real-time classification tasks.
 # Results
 ## Metrics Used
 The following metrics were used to evaluate the models:
