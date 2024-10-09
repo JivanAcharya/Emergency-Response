@@ -1,4 +1,4 @@
-# emergencyrespomse
+# Emergency Response
 
 ## Introduction
 This project focuses on detecting and classifying violent activities in real-time video frames. It leverages deep learning models, including ResNet18 combined with LSTM for classification and YOLOv8 for object detection, to analyze and identify potential violent events in video streams.
